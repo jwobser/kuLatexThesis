@@ -1,0 +1,25 @@
+\begin{thebibliography}{1}
+
+\bibitem{Lamport:1994}
+Leslie Lamport.
+\newblock {\em {\LaTeX}: A Document Preparation System}.
+\newblock Addison-Wesley, Reading Massachusetts, 1994.
+
+\bibitem{Goossens:1994}
+Michel Goossens, Frank Mittelbach, and Alexander Samarin.
+\newblock {\em The {\LaTeX} Companion}.
+\newblock Addison-Wesley, Reading Massachusetts, 1994.
+
+\bibitem{Kopka:1999}
+Helmut Kopka and Patrick~W. Daly.
+\newblock {\em A Guide to {\LaTeX}, : Document Preparation for Beginners and
+  Advanced Users}.
+\newblock Addison-Wesley, Reading Massachusetts, third edition, 1999.
+
+\bibitem{Kopka:1995}
+Helmut Kopka and Patrick~W. Daly.
+\newblock {\em A Guide to {\LaTeX} : Document Preparation for Beginners and
+  Advanced Users}.
+\newblock Addison-Wesley, Reading Massachusetts, second edition, 1995.
+
+\end{thebibliography}
