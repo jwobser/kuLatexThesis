@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.4.12)  26 JUN 2013 22:20
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2013.4.12)  27 JUN 2013 00:19
 entering extended mode
 **thesis.tex
-("C:\Users\James\Google Drive\KUThesis Class\template\thesis.tex"
+("C:\Users\James\Google Drive\kuLatexThesis\template\thesis.tex"
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,7 +13,7 @@ an, ngerman-x-2009-06-19, nynorsk, oriya, panjabi, pinyin, polish, portuguese,
 romanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swis
 sgerman, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, u
 senglishmax, welsh, loaded.
-("C:\Users\James\Google Drive\KUThesis Class\template\kuthesis.cls"
+("C:\Users\James\Google Drive\kuLatexThesis\template\kuthesis.cls"
 Document Class: kuthesis 2013/06/26 Kettering University thesis class
 ("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
@@ -300,25 +300,25 @@ Package: subfigure 2002/07/30 v2.1.4 subfigure package
 \subfig@top=\skip63
 \subfig@bottom=\skip64
 )
-("C:\Users\James\Google Drive\KUThesis Class\template\mydefs.tex"
+("C:\Users\James\Google Drive\kuLatexThesis\template\mydefs.tex"
 \myi=\count131
 )
-("C:\Users\James\Google Drive\KUThesis Class\template\thesis.aux"
-("C:\Users\James\Google Drive\KUThesis Class\template\front.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\introduction.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\summary.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\recommendations.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\demo-citations.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\demo-figures.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\demo-mathematics.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\demo-multicols.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\demo-tables.aux"
+("C:\Users\James\Google Drive\kuLatexThesis\template\thesis.aux"
+("C:\Users\James\Google Drive\kuLatexThesis\template\front.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\introduction.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\summary.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\recommendations.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\demo-citations.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\demo-figures.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\demo-mathematics.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\demo-multicols.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\demo-tables.aux"
 
 LaTeX Warning: Label `ta:American-Presidents-with' multiply defined.
 
-) ("C:\Users\James\Google Drive\KUThesis Class\template\demo-text.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\bibliography.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\vita.aux"))
+) ("C:\Users\James\Google Drive\kuLatexThesis\template\demo-text.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\bibliography.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\vita.aux"))
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 153.
 LaTeX Font Info:    ... okay on input line 153.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 153.
@@ -350,24 +350,24 @@ Package: notoccite 2000/07/20
 ) [1
 
 {C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}]
-("C:\Users\James\Google Drive\KUThesis Class\template\front.tex" [2
+("C:\Users\James\Google Drive\kuLatexThesis\template\front.tex" [2
 
 ] [3
 
 ]
 [4
 
-] ("C:\Users\James\Google Drive\KUThesis Class\template\thesis.toc")
+] ("C:\Users\James\Google Drive\kuLatexThesis\template\thesis.toc")
 \tf@toc=\write4
  [5
 
 ]
-("C:\Users\James\Google Drive\KUThesis Class\template\thesis.lot")
+("C:\Users\James\Google Drive\kuLatexThesis\template\thesis.lot")
 \tf@lot=\write5
  [6
 
 ]
-("C:\Users\James\Google Drive\KUThesis Class\template\thesis.lof")
+("C:\Users\James\Google Drive\kuLatexThesis\template\thesis.lof")
 \tf@lof=\write6
  [7
 
@@ -401,20 +401,19 @@ Underfull \hbox (badness 10000) in alignment at lines 89--92
 
 ]) [12
 
-]
-("C:\Users\James\Google Drive\KUThesis Class\template\introduction.tex"
+] ("C:\Users\James\Google Drive\kuLatexThesis\template\introduction.tex"
 Chapter 1.
 ) [1
 
 
 
-] ("C:\Users\James\Google Drive\KUThesis Class\template\summary.tex"
+] ("C:\Users\James\Google Drive\kuLatexThesis\template\summary.tex"
 Chapter 2.
 ) [2
 
 
 
-] ("C:\Users\James\Google Drive\KUThesis Class\template\recommendations.tex"
+] ("C:\Users\James\Google Drive\kuLatexThesis\template\recommendations.tex"
 Chapter 3.
 ) [3
 
@@ -424,12 +423,12 @@ Chapter 3.
 
 
 ]
-("C:\Users\James\Google Drive\KUThesis Class\template\demo-citations.tex"
+("C:\Users\James\Google Drive\kuLatexThesis\template\demo-citations.tex"
 Appendix A.
 ) [4
 
 
-] ("C:\Users\James\Google Drive\KUThesis Class\template\demo-figures.tex"
+] ("C:\Users\James\Google Drive\kuLatexThesis\template\demo-figures.tex"
 Appendix B.
 Package epstopdf Info: Source file: <plot.eps>
 (epstopdf)                    date: 2013-06-26 13:57:46
@@ -465,8 +464,8 @@ Package pdftex.def Info: plot-eps-converted-to.pdf used on input line 52.
 
 
 
- <C:/Users/James/Google Drive/KUThesis Class/template/plot-eps-converted-to.pdf
->]
+ <C:/Users/James/Google Drive/kuLatexThesis/template/plot-eps-converted-to.pdf>
+]
 Package epstopdf Info: Source file: <plot.eps>
 (epstopdf)                    date: 2013-06-26 13:57:46
 (epstopdf)                    size: 7362 bytes
@@ -580,14 +579,14 @@ Package pdftex.def Info: plot-eps-converted-to.pdf used on input line 86.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) [6] [7] [8]
-("C:\Users\James\Google Drive\KUThesis Class\template\demo-mathematics.tex"
+("C:\Users\James\Google Drive\kuLatexThesis\template\demo-mathematics.tex"
 Appendix C.
 [9
 
 
 
 ] [10]) [11]
-("C:\Users\James\Google Drive\KUThesis Class\template\demo-multicols.tex"
+("C:\Users\James\Google Drive\kuLatexThesis\template\demo-multicols.tex"
 Appendix D.
 
 Underfull \hbox (badness 10000) in paragraph at lines 27--28
@@ -788,7 +787,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 35--36
 
 
 
-]) [13] ("C:\Users\James\Google Drive\KUThesis Class\template\demo-tables.tex"
+]) [13] ("C:\Users\James\Google Drive\kuLatexThesis\template\demo-tables.tex"
 Appendix E.
 [14
 
@@ -798,7 +797,7 @@ Appendix E.
 \twidth=\skip65
 \theight=\skip66
 ) [17] [18] [19]
-("C:\Users\James\Google Drive\KUThesis Class\template\demo-text.tex"
+("C:\Users\James\Google Drive\kuLatexThesis\template\demo-text.tex"
 Appendix F.
 
 Overfull \hbox (60.38025pt too wide) in paragraph at lines 65--65
@@ -860,42 +859,42 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 154.
  [22]) [23]
-("C:\Users\James\Google Drive\KUThesis Class\template\bibliography.tex"
-("C:\Users\James\Google Drive\KUThesis Class\template\thesis.bbl" [24
+("C:\Users\James\Google Drive\kuLatexThesis\template\bibliography.tex"
+("C:\Users\James\Google Drive\kuLatexThesis\template\thesis.bbl" [24
 
 
 
 ]))
 [24
 
-] ("C:\Users\James\Google Drive\KUThesis Class\template\vita.tex" [25
+] ("C:\Users\James\Google Drive\kuLatexThesis\template\vita.tex" [25
 
 
 
 ])
 [25
 
-] ("C:\Users\James\Google Drive\KUThesis Class\template\thesis.aux"
-("C:\Users\James\Google Drive\KUThesis Class\template\front.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\introduction.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\summary.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\recommendations.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\demo-citations.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\demo-figures.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\demo-mathematics.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\demo-multicols.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\demo-tables.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\demo-text.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\bibliography.aux")
-("C:\Users\James\Google Drive\KUThesis Class\template\vita.aux"))
+] ("C:\Users\James\Google Drive\kuLatexThesis\template\thesis.aux"
+("C:\Users\James\Google Drive\kuLatexThesis\template\front.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\introduction.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\summary.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\recommendations.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\demo-citations.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\demo-figures.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\demo-mathematics.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\demo-multicols.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\demo-tables.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\demo-text.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\bibliography.aux")
+("C:\Users\James\Google Drive\kuLatexThesis\template\vita.aux"))
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
  3107 strings out of 494045
- 46258 string characters out of 3148387
- 116287 words of memory out of 3000000
+ 46167 string characters out of 3148387
+ 116251 words of memory out of 3000000
  6251 multiletter control sequences out of 15000+200000
  8225 words of font info for 30 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
@@ -909,7 +908,7 @@ nts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1
 sfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
 m/cmti12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti8.
 pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on thesis.pdf (40 pages, 159009 bytes).
+Output written on thesis.pdf (40 pages, 158907 bytes).
 PDF statistics:
  176 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
