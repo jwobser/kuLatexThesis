@@ -28,6 +28,7 @@
 \RequirePackage{pulongtable}
 \RequirePackage{rotating}
 \RequirePackage{lscape}
+%\RequirePackage{mathptmx}
 
 
 \makeatletter
@@ -86,15 +87,14 @@
   \renewcommand{\pendnotes}{%
     \newpage
     \begingroup
-%% !  \renewcommand{\baselinestretch}{0.9}
-      \setlength{\parindent}{0pt}
+      \setlength{\parindent}{0.5truein}
       \setlength{\parskip}{1.5ex}
       \renewcommand{\enotesize}{\normalsize}
       \theendnotes
     \endgroup
   }
 }
-\newcommand{\@@type}{unknown}
+\newcommand{\@@type}{thesis}
 \newcommand{\set@@type}[1]{\renewcommand{\@@type}{#1}}
 \DeclareOption{thesis}{\set@@type{thesis}}
 \newboolean{@@uglyheadings}
@@ -171,10 +171,7 @@
       \IW{You must specify an option for your type of document, for example,}
       \IW{++++\string\documentclass[aae,dissertation]{puthesis}}
       \IW{The available document types are}
-      \IW{++++bypass+++++++++Master's Bypass Report}
-      \IW{++++dissertation+++Ph.D. dissertation}
-      \IW{++++prelim+++++++++Ph.D. Preliminary Report}
-      \IW{++++thesis+++++++++Master's Thesis}
+      \IW{++++thesis+++++++++Kettering Univeristy Bachelor's Thesis}
       \IW{ABORTING...}
       \IW{}
       \stop
@@ -182,29 +179,8 @@
   \ifnum\value{@@tcount}>1
     \IW{}
     \IW{You may specify only one citation/bibliography style from the below list:}
-    \IW{++++abbrv}
-    \IW{++++abbrvnat}
-    \IW{++++agsm}
-    \IW{++++aip}
-    \IW{++++alpha}
-    \IW{++++ama}
     \IW{++++apacite}
     \IW{++++apalike}
-    \IW{++++astron}
-    \IW{++++chicago}
-    \IW{++++ieee}
-    \IW{++++ieeetr}
-    \IW{++++jfm}
-    \IW{++++jfm2}
-    \IW{++++kluwer}
-    \IW{++++phaip}
-    \IW{++++plain}
-    \IW{++++plainnat}
-    \IW{++++unsrt}
-    \IW{++++unsrtnat}
-    \IW{See}
-    \IW{++++http://engineering.purdue.edu/\string~mark/puthesis/\@@number Options}
-    \IW{for more details.}
     \IW{ABORTING...}
     \IW{}
     \stop
@@ -222,50 +198,17 @@
 \renewcommand*\l@figure{\@dottedtocline{1}{\bigtocskip}{0em}{2.3em}}
 \renewcommand*\l@table{\@dottedtocline{1}{\bigtocskip}{0em}{2.3em}}
 
-%{\obeyspaces
-%  \gdef\@@Identification{{
-%    \IW{}
-%    \IW{                                      ||}
-%    \IW{                                  see || below}
-%    \IW{                                      ||}
-%    \IW{                                   \string\\ || //}
-%    \IW{                                    \string\\||//}
-%    \IW{                                     \string\\//}
-%    \IW{+----------------------------------------------------------------------------+}
-%    \IW{| This document is using the 2012/11/30 version of puthesis.cls.  It was     |}
-%    \IW{| probably read in because you used \string\documentclass[...]{puthesis}.           |}
-%    \IW{|                                                                            |}
-%    \IW{| Only the latest version of this file available from                        |}
-%    \IW{|     http://engineering.purdue.edu/\string~mark/puthesis                               |}
-%    \IW{| is supported.   Put it in the same subdirectory as your thesis.            |}
-%    \IW{|                                                                            |}
-%    \IW{| This file may be being read from your thesis directory or somewhere else.  |}
-%    \IW{| To find out which is being used search for ``puthesis.cls'' near the       |}
-%    \IW{| beginning of this log.  If it has ``(puthesis.cls'' or ``(./puthesis.cls'' |}
-%    \IW{| it's from your thesis directory, otherwise it is being read form somewhere |}
-%    \IW{| else.                                                                      |}
-%    \IW{+----------------------------------------------------------------------------+}
-%    \IW{                                     //\string\\}
-%    \IW{                                    //||\string\\}
-%    \IW{                                   // || \string\\}
-%    \IW{                                      ||}
-%    \IW{                                  see || above}
-%    \IW{                                      ||}
-%    \IW{}
-%}}
-%}
-
 \def\AppendixFigure{\relax}
 \def\AppendixTable{\relax}
 \def\@@bibname{LIST OF REFERENCES}
 \def\@@deptbibstyle{unsrt}
 \def\@@coversheetspace{\vfill}
-\def\@@evenfoot{}
-\def\@@evenhead{\hfil\textrm{\thepage}}
+\def\@@evenfoot{\hfil\textrm{\thepage}\hfil}
+\def\@@evenhead{}
 \newboolean{@@figurecaptions}
   \setboolean{@@figurecaptions}{false}
-\def\@@oddfoot{}
-\def\@@oddhead{\hfil\textrm{\thepage}}
+\def\@@oddfoot{\hfil\textrm{\thepage}\hfil}
+\def\@@oddhead{}
 \def\@@sectionbaselinestretch{\relax}
 \def\@@sectionseries{\bfseries}
 \def\@@startthebibliography{\coversheet{\@@bibname}}
@@ -279,24 +222,30 @@
 
 \ifthen{\equal{me}{\@@dept}}
   {
-    \ifthenelse{\equal{\@@optionbibstyle}{jfm}}
-      {\def\@@deptbibstyle{jfm}}
+    \ifthenelse{\equal{\@@optionbibstyle}{apa}}
+      {\def\@@deptbibstyle{apa}}
       {\ifthenelse{\equal{\@@optionbibstyle}{jfm2}}
         {\def\@@deptbibstyle{jfm2}}
         {\def\@@deptbibstyle{pumeunsrt}}
       }
     \def\fnum@table{\tablename~\thetable.~}
     \setboolean{@@figurecaptions}{true}
-    \def\@@makechapterhead#1{\rm\thechapter. \uppercase{#1}}
-    \def\@@makechapterheadspacea{\vspace*{0.5truein}}
-    \def\@@makechapterheadspaceb{\vspace{0.5\baselineskip}}
-    \def\@@makeschapterheadspacea{\vspace*{0.5truein}}
-    \def\@@makeschapterheadspaceb{\vspace*{0.5\baselineskip}}
+    \def\@@makechapterhead#1{\rm\thechapter.  \uppercase{#1}}
+    \def\@@makechapterheadspacea{\vspace*{0truein}}
+    \def\@@makechapterheadspaceb{\vspace*{1\normalbaselineskip}}
+    \def\@@makeschapterheadspacea{\vspace*{0truein}}
+    \def\@@makeschapterheadspaceb{\vspace*{1\normalbaselineskip}}
+	%\def\@@makechapterheadspacea{\vspace*{0.5truein}}
+    %\def\@@makechapterheadspaceb{\vspace{0.5\baselineskip}}
+    %\def\@@makeschapterheadspacea{\vspace*{0.5truein}}
+    %\def\@@makeschapterheadspaceb{\vspace*{0.5\baselineskip}}
     \nochapterblankpages
+	
   }
+  
 \AtBeginDocument{
-  \RequirePackage{notoccite}
-}
+  \RequirePackage{notoccite}%
+	}
 \AtEndDocument{
 %%  \@@Identification
 %%  \write\@auxout{\string\newcounter{\string\csname@@@appendix\endcsname}}
@@ -330,9 +279,14 @@
     \@@NotTableOfContents
   }
 }
+
+\renewcommand{\rmdefault}{ptm}
 \setlength{\paperheight}{11truein}
 \setlength{\paperwidth}{8.5truein}
 \renewcommand*{\baselinestretch}{1.5}
+\setlength{\topmargin}{-0.75truein}
+\addtolength{\topmargin}{-0.125truein}
+\setlength{\parindent}{0.5truein}
 \setlength{\evensidemargin}{0.5truein}
 \setlength{\oddsidemargin}{0.5truein}
 \setlength{\textheight}{9truein}
@@ -340,19 +294,15 @@
 \clubpenalty=10000
 \widowpenalty=10000
 \displaywidowpenalty=10000
-\ifthen{\equal{mse}{\@@dept}}
-  {\setlength{\parindent}{0.40625truein}}
-%\setlength\parskip{0\p@ \@plus \p@}
-\pagenumbering{roman}
+\pagenumbering{arabic}
 \newcommand{\@@NotTableOfContents}{%
   \renewcommand*{\@evenhead}{\@@evenhead}
   \renewcommand*{\@oddhead}{\@@oddhead}
   \renewcommand*{\@evenfoot}{\@@evenfoot}
   \renewcommand*{\@oddfoot}{\@@oddfoot}
 }
+
 \@@NotTableOfContents
-\setlength{\topmargin}{-0.5truein}
-\addtolength{\topmargin}{0.04875truein}
 \settoheight{\headheight}{- ivx1 -}
 \setlength{\headsep}{0.5truein}
 \addtolength{\headsep}{-\headheight}
@@ -363,29 +313,28 @@
   \renewcommand*{\@@TitleAuthor}{#1}%
   \renewcommand*{\@@AbstractAuthor}{#2}%
 }
-\newcommand*{\@@Campus}{\relax}
-\newcommand*{\@@Campus@Input}{}
-\newcommand*{\campus}[1]{%
-  \renewcommand\@@Campus@Input{#1}
-  \renewcommand{\@@t}{Fort Wayne}      \ifthen{\equal{#1}{\@@t}}{\edef\@@Campus{\@@t}}
-  \renewcommand{\@@t}{Hammond}         \ifthen{\equal{#1}{\@@t}}{\edef\@@Campus{\@@t}}
-  \renewcommand{\@@t}{Indianapolis}    \ifthen{\equal{#1}{\@@t}}{\edef\@@Campus{\@@t}}
-  \renewcommand{\@@t}{West Lafayette}  \ifthen{\equal{#1}{\@@t}}{\edef\@@Campus{\@@t}}
-  \renewcommand{\@@t}{Westville}       \ifthen{\equal{#1}{\@@t}}{\edef\@@Campus{\@@t}}
-  \renewcommand{\@@t}{Flint}		   \ifthen{\equal{#1}{\@@t}}{\edef\@@Campus{\@@t}}
-}
+\newcommand*{\@@Campus}{Flint}
+\newcommand*{\@@Campus@Input}{Flint}
 
 
+\newcommand*{\@@EmployerAdvisor}{Employer Advisor}
+\newcommand*{\employeradvisor}[1]{\renewcommand*{\@@EmployerAdvisor}{Employer Advisor - #1}}
+\newcommand*{\@@FacultyAdvisor}{Faculty Advisor}
+\newcommand*{\facultyadvisor}[1]{\renewcommand*{\@@FacultyAdvisor}{Faculty Advisor - #1}}
 \newcommand*{\@@TitleDegree}{\relax}
 \newcommand*{\@@AbstractDegree}{\relax}
 \newcommand*{\@@DegreeMonth}{\relax}
 \newcommand*{\@@DegreeYear}{\relax}
-\newcommand*{\pudegree}[4]{%
+\newcommand*{\kudegree}[4]{%
   \renewcommand*{\@@TitleDegree}{#1}%
   \renewcommand*{\@@AbstractDegree}{#2}%
   \renewcommand*{\@@DegreeMonth}{#3}%
   \renewcommand*{\@@DegreeYear}{#4}%
 }
+\newcommand*{\@@EmployerName}{\relax}
+\newcommand*{\employer}[1]{\renewcommand*{\@@EmployerName}{#1}}
+\newcommand*{\@@AreaOfStudy}{\relax}
+\newcommand*{\areaofstudy}[1]{\renewcommand*{\@@AreaOfStudy}{#1}}
 \newcommand*{\@@MajorProf}{\relax}
 \newcommand*{\majorprof}[1]{\renewcommand*{\@@MajorProf}{Major Professor: #1}}
 \newcommand*{\majorprofs}[1]{\renewcommand*{\@@MajorProf}{Major Professors: #1}}
@@ -393,69 +342,49 @@
 \renewcommand*{\title}[1]{\renewcommand*{\@@Title}{#1}}
 \renewcommand*{\maketitle}
   {
-    \ifthen{\equal{\@@Campus@Input}{}}
-      {
-        \IW{You must specify which campus your degree is from, for example,}
-        \IW{\space\space\space\space\string\campus{West Lafayette}}
-        \IW{See}
-        \IW{\space\space\space\space http://engineering.purdue.edu/\string~mark/puthesis/\@@number campus}
-        \IW{for the valid choices.}
-        \IW{ABORTING...}
-        \IW{}
-        \stop
-      }
-    \ifthen{\equal{\@@Campus}{\relax}}
-      {
-        \IW{The campus specified in your}
-        \IW{\space\space\space\space\string\campus{\@@Campus@Input}}
-        \IW{command is not valid.}
-        \IW{See}
-        \IW{\space\space\space\space http://engineering.purdue.edu/\string~mark/puthesis/\@@number campus}
-        \IW{for the valid choices.}
-        \IW{ABORTING...}
-        \IW{}
-        \stop
-      }
     {
       \renewcommand*{\baselinestretch}{2} \reset@font
       \setcounter{save@@page}{\value{page}}
       \begin{titlepage}
-        \mbox{}
-        \vfil
-        \vfil
         \begin{center}
-        \uppercase\expandafter{\@@Title}
-        \end{center}
+        {\bfseries \uppercase\expandafter{\@@Title}}\\
+		\vspace{0.25\normalbaselineskip}
         \ifthen{\(\boolean{number@@all@@volumes} \and \value{last@@volume}>1\) \or \value{@@volume}>1}
           {
             \begin{center}
               VOLUME \the@@volume
             \end{center}
           }
-        \vfil
-        \begin{center}
-          \ifthen{\equal{thesis}{\@@type}}{A Thesis\\}
-          Submitted to the Faculty\\
-          of\\
-          Kettering University\\
-          by\\
-          \@@TitleAuthor
+          A thesis written at\\
+		  {\bfseries \uppercase\expandafter{\@@EmployerName}}\\
+		  and submitted to\\
+		  {\bfseries \uppercase\expandafter{Kettering University}}\\
+        \renewcommand*{\baselinestretch}{1} \reset@font
+		\vspace{2\baselineskip}
+          in partial fulfillment\\
+          of the requirements for the\\
+          degree of\\
+		  \vspace{1\baselineskip}
+          {\bfseries \uppercase\expandafter{\@@TitleDegree}}\\
+		  \vspace{1\baselineskip}
+		\renewcommand*{\baselinestretch}{2} \reset@font
+		  by\\
+          {\bfseries \uppercase\expandafter{\@@TitleAuthor}}\\
+		  \@@DegreeMonth\ \@@DegreeYear\\
         \end{center}
-        \vfil
-        \begin{center}
-          In Partial Fulfillment of the\\
-          Requirements for the Degree\\
-          of\\
-          \@@TitleDegree
-        \end{center}
+		\vfill{%
+			\hfill\begin{tabular}{@{}p{3in}@{}}
+			\\ \hline \\[-1.25\normalbaselineskip]
+			Author\\
+			\\ \hline \\[-1.25\normalbaselineskip]
+			\@@EmployerAdvisor \\
+			\\ \hline \\[-1.25\normalbaselineskip]
+			\@@FacultyAdvisor
+			\end{tabular}
+		}
         \ifthenelse{\equal{mse}{\@@dept}}
           {}
           {\vfil}
-        \begin{center}
-          \@@DegreeMonth\ \@@DegreeYear\\
-          Kettering University\\
-          Flint, Michigan
-        \end{center}
         \ifthenelse{\equal{mse}{\@@dept}}
           {}
           {\vfil\vfil}
@@ -465,6 +394,47 @@
         {\setcounter{page}{2}}
     }
   }
+  
+  \newcommand*{\makedisclaimer}{\relax}
+  \renewcommand*{\makedisclaimer}
+  {
+    {
+      \renewcommand*{\baselinestretch}{2} \reset@font
+      {\@@nonchapter{next}{Disclaimer}{n}{0pt}}%
+	  %\begin{center}
+        %{\bfseries \uppercase{Disclaimer}}
+	
+		%\vspace{1\normalbaselineskip}
+        %\end{center}
+		
+		This thesis is submitted as partial and final fulfillment of the cooperative work experience requirements of Kettering University needed to obtain a \@@TitleDegree\ Degree.
+		
+		The conclusions and opinions expressed in this thesis are those of the writer and do not necessarily represent the position of Kettering University or \@@EmployerName, or any of its directors, officers, agents or employees with repsect to the matters discussed.
+		
+      }
+    }
+	
+\newcommand*{\makepreface}{\relax}
+  \renewcommand*{\makepreface}
+  {
+    {
+      \renewcommand*{\baselinestretch}{2} \reset@font
+      {\@@nonchapter{next}{Preface}{n}{0pt}}%
+	  %\begin{center}
+        %{\bfseries \uppercase{Disclaimer}}
+	
+		%\vspace{1\normalbaselineskip}
+        %\end{center}
+		
+		This thesis represents thet capstone of my five years combined academic work at Kettering University and job experience at \@@EmployerName. Academic experiences in \@@AreaOfStudy\ proved to be valuable assets while I developed this thesis and addressed the problem it concerns.
+		
+		Although this thesis represents the compilation of my own efforts, I would like to acknowledge and extend my sincere gratitude to the following persons for their valuable time and assistance, without whom the completion of this thesis would not have been possible:
+		\input{acknowledgements.tex}
+      }
+    }
+  
+  
+  
 \newenvironment{dedication}%
   {%
     \newpage
@@ -485,23 +455,18 @@
   % #3 "y" or "n": put in table of contents?
   % #4 amount of extra space to put after heading at top of page
 \newcommand{\@@nonchapter}[4]{{%
-  \@@NotTableOfContents
+  %\@@NotTableOfContents
   \bgroup
     \setboolean{@@inother}{true}
     \renewcommand{\large}{}%
     \renewcommand{\bf}{}%
-    \ifthenelse{\equal{ce}{\@@dept}}
-      {\chapter*{\uppercase{#2}}}
-      {\chapter*{#2}}
-    \ifthen{\equal{y}{#3}}
-      {
-        \ifthenelse{\equal{ce}{\@@dept}}
-          {\addcontentsline{toc}{chapter}{\uppercase{#2}}}
-          {\addcontentsline{toc}{chapter}{#2}}
-      }
+    \chapter*{\bfseries{\uppercase{#2}}}
+    {\addcontentsline{toc}{chapter}{\uppercase{#2}}}
   \egroup
   \vspace{#4}
 }}
+
+
 \newenvironment{acknowledgments}%
   {\@@nonchapter{next}{ACKNOWLEDGMENTS}{n}{0pt}}%
   {}
@@ -683,6 +648,33 @@
   %% ! \showthe\stuff
   %% ! \addtolength{\@@tlength}{-?}
 }
+
+\renewenvironment{abstract}%
+  {%
+    \@@nonchapter{next}{ABSTRACT}{y}{0pt}
+    {%
+      \renewcommand*{\baselinestretch}{1.0}\reset@font
+      \vspace*{\baselineskip}
+      \vbox{
+        \noindent
+        \@@AbstractAuthor~\@@AbstractDegree,
+        Purdue University,
+        \@@DegreeMonth\ %
+        \@@DegreeYear.
+        {%
+          \renewcommand*{\\}{}%
+          \@@Title.
+        }
+        \ifthenelse{\isundefined{\@@OverrideMajorProf}}
+          {\@@MajorProf\ifthen{\equal{me}{\@@dept}}{, School of Mechanical Engineering}.}
+          {\@@OverrideMajorProf}
+      }
+      \vspace*{\baselineskip}
+      \par
+    }
+  }%
+
+
 \newenvironment{symbols}%
   {%
     \@@startlist{SYMBOLS}
@@ -1279,27 +1271,13 @@
     {
       \addtocontents{toc}{\string\vskip\string\baselineskip \noindent VOLUME \the@@volume}
     }
-  \maketitle
+  %\maketitle
 }
 
-\ifthen{\equal{me}{\@@dept}}
-  {
-    \ifthenelse{\equal{\@@optionbibstyle}{jfm}}
-      {\def\@@deptbibstyle{jfm}}
-      {\ifthenelse{\equal{\@@optionbibstyle}{jfm2}}
-        {\def\@@deptbibstyle{jfm2}}
-        {\def\@@deptbibstyle{pumeunsrt}}
-      }
     \def\fnum@figure{\figurename~\thefigure.~}
     \def\fnum@table{\tablename~\thetable.~}
-    \setboolean{@@figurecaptions}{true}
-    \def\@@makechapterhead#1{\rm\thechapter. \uppercase{#1}}
-    \def\@@makechapterheadspacea{\vspace*{0.5truein}}
-    \def\@@makechapterheadspaceb{\vspace{0.5\baselineskip}}
-    \def\@@makeschapterheadspacea{\vspace*{0.5truein}}
-    \def\@@makeschapterheadspaceb{\vspace*{0.5\baselineskip}}
     \nochapterblankpages
-  }
+  
 
 \makeatother
 
