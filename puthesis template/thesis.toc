@@ -10,16 +10,18 @@
 \contentsline {chapter}{\uppercase {NOMENCLATURE}}{12}
 \contentsline {chapter}{\uppercase {GLOSSARY}}{13}
 \contentsline {chapter}{\uppercase {ABSTRACT}}{14}
-\contentsline {chapter}{\numberline {1.}\uppercase {Introduction}}{1}
-\contentsline {section}{\numberline {1.1}Section Heading}{1}
-\contentsline {subsection}{\numberline {1.1.1}Subsection heading}{1}
-\contentsline {subsubsection}{Subsubsection heading}{1}
-\contentsline {chapter}{\numberline {2.}\uppercase {Summary}}{2}
-\contentsline {chapter}{\numberline {3.}\uppercase {Recommendations}}{3}
-\contentsline {chapter}{\numberline {A.}\uppercase {Demonstrate Citations}}{4}
-\contentsline {chapter}{\numberline {B.}\uppercase {Demonstrate Figures}}{5}
-\contentsline {chapter}{\numberline {C.}\uppercase {Demonstrate Mathematics}}{9}
-\contentsline {chapter}{\numberline {D.}\uppercase {Demonstrate Multicols}}{12}
-\contentsline {chapter}{\numberline {E.}\uppercase {Demonstrate Tables}}{14}
-\contentsline {chapter}{\numberline {F.}\uppercase {Demonstrate Text}}{20}
-\contentsline {chapter}{\uppercase {LIST OF REFERENCES}}{24}
+\contentsline {chapter}{\numberline {I.}\uppercase {Introduction}}{1}
+\contentsline {section}{Problem Topic}{1}
+\contentsline {section}{Background}{1}
+\contentsline {section}{Criteria and Parameter Restrictions}{2}
+\contentsline {subsection}{Subsection heading}{2}
+\contentsline {subsubsection}{Subsubsection heading}{2}
+\contentsline {chapter}{\numberline {II.}\uppercase {Summary}}{3}
+\contentsline {chapter}{\numberline {III.}\uppercase {Recommendations}}{4}
+\contentsline {chapter}{\numberline {I.}\uppercase {Demonstrate Citations}}{5}
+\contentsline {chapter}{\numberline {II.}\uppercase {Demonstrate Figures}}{6}
+\contentsline {chapter}{\numberline {III.}\uppercase {Demonstrate Mathematics}}{10}
+\contentsline {chapter}{\numberline {IV.}\uppercase {Demonstrate Multicols}}{13}
+\contentsline {chapter}{\numberline {V.}\uppercase {Demonstrate Tables}}{15}
+\contentsline {chapter}{\numberline {VI.}\uppercase {Demonstrate Text}}{21}
+\contentsline {chapter}{\uppercase {LIST OF REFERENCES}}{25}

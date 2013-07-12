@@ -2,12 +2,13 @@
 % for documentclass options.
 % CHANGE NEXT LINE?
 % \documentclass[ece,dissertation]{puthesis}
-\documentclass[me,thesis]{kuthesis}
+\documentclass{kuthesis}
 \usepackage{epstopdf}
 \usepackage{amsmath}
 \usepackage{multicol}
 \usepackage{subfigure}
 \usepackage{epstopdf}
+\usepackage{layout}
 
 \title{%
   Thesis Title%\\
@@ -34,17 +35,6 @@
 \newcommand{\ve}[2]{\en{#1_1},~\en{#1_2},\ \ldots,~\en{#1_{#2}}}
 
 
-% To LaTeX only some parts of your thesis put the
-% names of the parts to include here.  For example,
-% \includeonly{front} would only process front.tex.
-% \includeonly{front,introduction} would only process
-% front.tex and introduction.tex.
-% To print the final copy of your thesis put a '%'
-% in front of the \includeonly command and run LaTeX
-% three times to make sure that all cross-references
-% are correct.  Then run BibTeX once and LaTeX twice
-% more.
-% CHANGE NEXT LINE?
 %\includeonly{front,introduction}
 
 
@@ -54,40 +44,18 @@
 % "\volume" between chapters below.
 \volume
 
+\layout
+
 \maketitle
 \makedisclaimer
 \makepreface
 
-% Front matter (dedication, etc.).
 \include{front}
-
-% Put chapter \include commands here.
-% CHANGE \include{...} COMMANDS BELOW?
 \include{introduction}
 
-% Summary and/or conclusions are optional but often used.
-% The summary and/or conclusions often are the last
-% major division(s) of the text.
-% Reference: TM 32.
-% CHANGE NEXT LINE?
 \include{summary}
-
-% Recommendations are optional.
-% You may include recommendations as a major division if your
-% subject matter and research dictate.
-% Reference: TM 32.
-% CHANGE NEXT LINE?
 \include{recommendations}
 
-% Appendices are optional.
-% Appendices are not necessarily part of every thesis. Appendices are used
-% for supplementary illustrative material, original data, computer programs,
-% and other material not necessarily appropriate for inclusion within the
-% text of your thesis. 
-% Reference: TM 33.
-% Use "\appendix" for one appendix or "\appendices" for more than one
-% appendix.
-% CHANGE NEXT 7 LINES?
 \appendices
 \include{demo-citations}
 \include{demo-figures}
@@ -96,12 +64,7 @@
 \include{demo-tables}
 \include{demo-text}
 
-% Bibliography is required if you consulted any outside references.
-% Reference: TM 32.
 \include{bibliography}
 
 \end{document}
 
-% LaTeX won't read after the \end{document} command.
-% You can put notes to yourself or LaTeX input not
-% ready for use here if you'd like.

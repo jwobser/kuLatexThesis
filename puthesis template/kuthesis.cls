@@ -19,17 +19,16 @@
 %    See http://engineering.purdue.edu/~mark/puthesis for more information.
 %
 % 
-
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{kuthesis}[2013/06/26 Kettering University thesis class]
 \RequirePackage{ifthen}
-\newcommand{\ifthen}[2]{\ifthenelse{#1}{#2}{}}
 \RequirePackage{endnotes}
 \RequirePackage{pulongtable}
 \RequirePackage{rotating}
 \RequirePackage{lscape}
-%\RequirePackage{mathptmx}
+%\RequirePackage{mathptmx} %Math Times New Roman Package
 
+\newcommand{\ifthen}[2]{\ifthenelse{#1}{#2}{}}
 
 \makeatletter
 
@@ -45,7 +44,7 @@
 \newlength{\@@padding}
 \newlength{\@@tlength}
 \newlength{\@@ulength}
-\newcommand{\@@dept}{unknown}
+\newcommand{\@@dept}{me}
 \newcommand{\set@@dept}[1]{\renewcommand{\@@dept}{#1}}
 
 \newcommand{\@@Repeat}[2]{%
@@ -79,8 +78,7 @@
         \if@@more\repeat
 }
 
-% Only ME option is allowed; Kettering has one format.
-\DeclareOption{me}{\set@@dept{me}}
+\set@@dept{me}
 \newcommand{\pendnotes}{}
 \DeclareOption{endnotes}{%
   \let\footnote=\endnote
@@ -95,11 +93,8 @@
   }
 }
 \newcommand{\@@type}{thesis}
-\newcommand{\set@@type}[1]{\renewcommand{\@@type}{#1}}
-\DeclareOption{thesis}{\set@@type{thesis}}
 \newboolean{@@uglyheadings}
 \setboolean{@@uglyheadings}{false}
-\DeclareOption{uglyheadings}{\setboolean{@@uglyheadings}{true}}
 \newboolean{@@unset}
 \newcommand{\@@optionbibstyle}{}
 \newcommand{\set@@optionbibstyle}[1]{\renewcommand{\@@optionbibstyle}{#1}\addtocounter{@@tcount}{1}}
@@ -111,71 +106,22 @@
 %
 \newboolean{@@nonchapterblankpages}
 \setboolean{@@nonchapterblankpages}{false}
-\newcommand{\nonchapterblankpages}{\setboolean{@@nonchapterblankpages}{true}}
-\newcommand{\nononchapterblankpages}{\setboolean{@@nonchapterblankpages}{false}}
-\DeclareOption{nonchapterblankpages}{\nonchapterblankpages}
-\DeclareOption{nononchapterblankpages}{\nononchapterblankpages}
 %
 \newboolean{@@chapterblankpages}
-\setboolean{@@chapterblankpages}{true}
-\newcommand{\chapterblankpages}{\setboolean{@@chapterblankpages}{true}}
-\newcommand{\nochapterblankpages}{\setboolean{@@chapterblankpages}{false}}
-\DeclareOption{chapterblankpages}{\chapterblankpages}
-\DeclareOption{nochapterblankpages}{\nochapterblankpages}
+\setboolean{@@chapterblankpages}{false}
 %
 \newboolean{@@coversheets}
 \setboolean{@@coversheets}{true}
-\newcommand{\coversheets}{\setboolean{@@coversheets}{true}}
-\newcommand{\nocoversheets}{\setboolean{@@coversheets}{false}}
-\DeclareOption{coversheets}{\coversheets}
-\DeclareOption{nocoversheets}{\nocoversheets}
 %
-\DeclareOption{miser}{
-  \nononchapterblankpages
-  \nochapterblankpages
-  \nocoversheets
-}
-\DeclareOption{nomiser}{
-  \nonchapterblankpages
-  \chapterblankpages
-  \coversheets
-}
-
 \newboolean{number@@all@@volumes}
 \setboolean{number@@all@@volumes}{false}
-\DeclareOption{numberallvolumes}{\setboolean{number@@all@@volumes}{true}}
-\DeclareOption{nonumberallvolumes}{\setboolean{number@@all@@volumes}{false}}
 
-%\DeclareOptions*(\PassOptionsToClass{\CurrentOption}{report}}
-  % Used to count number of citation/bibliography styles used.
 \setcounter{@@tcount}{0}
 \ProcessOptions
 \newcommand{\IW}[1]{\immediate\write16{#1}}
 {
   \catcode`\+=13
   \def+{\space}
-  \ifthen{\equal{\@@dept}{unknown}}
-    {
-      \IW{}
-      \IW{You must specify an option for your school or department, for example,}
-      \IW{++++\string\documentclass[aae]{puthesis}}
-      \IW{The available school and department options are defined at}
-      \IW{++++http://engineering.purdue.edu/\string~mark/puthesis/\@@number Options}
-      \IW{ABORTING...}
-      \IW{}
-      \stop
-    }
-  \ifthen{\equal{\@@type}{unknown}}
-    {
-      \IW{}
-      \IW{You must specify an option for your type of document, for example,}
-      \IW{++++\string\documentclass[aae,dissertation]{puthesis}}
-      \IW{The available document types are}
-      \IW{++++thesis+++++++++Kettering Univeristy Bachelor's Thesis}
-      \IW{ABORTING...}
-      \IW{}
-      \stop
-    }
   \ifnum\value{@@tcount}>1
     \IW{}
     \IW{You may specify only one citation/bibliography style from the below list:}
@@ -188,8 +134,6 @@
 }
 \LoadClass[12pt,twoside]{report}[2004/02/16]
 
-% Got these lines using "grep dotted report.cls" and changed
-% as needed for new \@dottedtocline \vskip parameter.
 \renewcommand*\l@section{\@dottedtocline{1}{\smalltocskip}{1.5em}{2.3em}}
 \renewcommand*\l@subsection{\@dottedtocline{2}{\smalltocskip}{3.8em}{3.2em}}
 \renewcommand*\l@subsubsection{\@dottedtocline{3}{\smalltocskip}{7.0em}{4.1em}}
@@ -206,7 +150,7 @@
 \def\@@evenfoot{\hfil\textrm{\thepage}\hfil}
 \def\@@evenhead{}
 \newboolean{@@figurecaptions}
-  \setboolean{@@figurecaptions}{false}
+\setboolean{@@figurecaptions}{false}
 \def\@@oddfoot{\hfil\textrm{\thepage}\hfil}
 \def\@@oddhead{}
 \def\@@sectionbaselinestretch{\relax}
@@ -230,27 +174,14 @@
       }
     \def\fnum@table{\tablename~\thetable.~}
     \setboolean{@@figurecaptions}{true}
-    \def\@@makechapterhead#1{\rm\thechapter.  \uppercase{#1}}
-    \def\@@makechapterheadspacea{\vspace*{0truein}}
-    \def\@@makechapterheadspaceb{\vspace*{1\normalbaselineskip}}
-    \def\@@makeschapterheadspacea{\vspace*{0truein}}
-    \def\@@makeschapterheadspaceb{\vspace*{1\normalbaselineskip}}
-	%\def\@@makechapterheadspacea{\vspace*{0.5truein}}
-    %\def\@@makechapterheadspaceb{\vspace{0.5\baselineskip}}
-    %\def\@@makeschapterheadspacea{\vspace*{0.5truein}}
-    %\def\@@makeschapterheadspaceb{\vspace*{0.5\baselineskip}}
-    \nochapterblankpages
-	
   }
   
 \AtBeginDocument{
   \RequirePackage{notoccite}%
 	}
-\AtEndDocument{
-%%  \@@Identification
-%%  \write\@auxout{\string\newcounter{\string\csname@@@appendix\endcsname}}
-%%  \write\@auxout{\string\setcounter{\string\csname@@@appendix\endcsname}{\arabic{@@appendix}}}
-}
+
+\AtEndDocument{}
+
 \newenvironment{cland}
   {\begin{landscape}\hbox\bgroup\hss\vbox\bgroup}
   {\egroup\hss\egroup\end{landscape}}
@@ -283,14 +214,15 @@
 \renewcommand{\rmdefault}{ptm}
 \setlength{\paperheight}{11truein}
 \setlength{\paperwidth}{8.5truein}
-\renewcommand*{\baselinestretch}{1.5}
-\setlength{\topmargin}{-0.75truein}
-\addtolength{\topmargin}{-0.125truein}
+\renewcommand*{\baselinestretch}{2}
+\setlength{\topmargin}{0truein}
+\setlength{\headsep}{0pt}
 \setlength{\parindent}{0.5truein}
 \setlength{\evensidemargin}{0.5truein}
 \setlength{\oddsidemargin}{0.5truein}
 \setlength{\textheight}{9truein}
 \setlength{\textwidth}{6truein}
+\setlength{\footskip}{.5truein}
 \clubpenalty=10000
 \widowpenalty=10000
 \displaywidowpenalty=10000
@@ -304,9 +236,9 @@
 
 \@@NotTableOfContents
 \settoheight{\headheight}{- ivx1 -}
-\setlength{\headsep}{0.5truein}
+% \setlength{\headsep}{0.5truein}
 \addtolength{\headsep}{-\headheight}
-\addtolength{\headsep}{-0.0625truein}
+% \addtolength{\headsep}{-0.0625truein}
 \newcommand*{\@@TitleAuthor}{\relax}
 \newcommand*{\@@AbstractAuthor}{\relax}
 \renewcommand*{\author}[2]{%
@@ -373,7 +305,8 @@
 		  \@@DegreeMonth\ \@@DegreeYear\\
         \end{center}
 		\vfill{%
-			\hfill\begin{tabular}{@{}p{3in}@{}}
+			\hfill
+			\begin{tabular}{@{}p{3in}@{}}
 			\\ \hline \\[-1.25\normalbaselineskip]
 			Author\\
 			\\ \hline \\[-1.25\normalbaselineskip]
@@ -382,12 +315,6 @@
 			\@@FacultyAdvisor
 			\end{tabular}
 		}
-        \ifthenelse{\equal{mse}{\@@dept}}
-          {}
-          {\vfil}
-        \ifthenelse{\equal{mse}{\@@dept}}
-          {}
-          {\vfil\vfil}
       \end{titlepage}
       \setcounter{page}{\value{save@@page}}
       \ifthen{\value{@@volume}=0 \or \value{@@volume}=1}
@@ -409,7 +336,7 @@
 		
 		This thesis is submitted as partial and final fulfillment of the cooperative work experience requirements of Kettering University needed to obtain a \@@TitleDegree\ Degree.
 		
-		The conclusions and opinions expressed in this thesis are those of the writer and do not necessarily represent the position of Kettering University or \@@EmployerName, or any of its directors, officers, agents or employees with repsect to the matters discussed.
+		The conclusions and opinions expressed in this thesis are those of the writer and do not necessarily represent the position of Kettering University or \@@EmployerName, or any of its directors, officers, agents or employees with respect to the matters discussed.
 		
       }
     }
@@ -429,7 +356,11 @@
 		This thesis represents thet capstone of my five years combined academic work at Kettering University and job experience at \@@EmployerName. Academic experiences in \@@AreaOfStudy\ proved to be valuable assets while I developed this thesis and addressed the problem it concerns.
 		
 		Although this thesis represents the compilation of my own efforts, I would like to acknowledge and extend my sincere gratitude to the following persons for their valuable time and assistance, without whom the completion of this thesis would not have been possible:
+		
+		\vspace*{0.5\baselineskip}		
+		\renewcommand*{\baselinestretch}{1} \reset@font
 		\input{acknowledgements.tex}
+		\renewcommand*{\baselinestretch}{2} \reset@font
       }
     }
   
@@ -641,38 +572,8 @@
   \addtolength{\@@tlength}{-\tabcolsep}
   \addtolength{\@@tlength}{-\tabcolsep}
   \addtolength{\@@tlength}{-1truein}
-    %% ! Get real width of first column.
-  %% ! \setcounter{\@@tcount}{\c@LT@tables}
-  %% ! \addtocounter(\@@tcount){1}
-  %% ! \def\stuff{\csname LT@\romannumeral\@@tcount\endcsname}
-  %% ! \showthe\stuff
-  %% ! \addtolength{\@@tlength}{-?}
 }
 
-\renewenvironment{abstract}%
-  {%
-    \@@nonchapter{next}{ABSTRACT}{y}{0pt}
-    {%
-      \renewcommand*{\baselinestretch}{1.0}\reset@font
-      \vspace*{\baselineskip}
-      \vbox{
-        \noindent
-        \@@AbstractAuthor~\@@AbstractDegree,
-        Purdue University,
-        \@@DegreeMonth\ %
-        \@@DegreeYear.
-        {%
-          \renewcommand*{\\}{}%
-          \@@Title.
-        }
-        \ifthenelse{\isundefined{\@@OverrideMajorProf}}
-          {\@@MajorProf\ifthen{\equal{me}{\@@dept}}{, School of Mechanical Engineering}.}
-          {\@@OverrideMajorProf}
-      }
-      \vspace*{\baselineskip}
-      \par
-    }
-  }%
 
 
 \newenvironment{symbols}%
@@ -724,46 +625,33 @@
     }
   }%
   {\par}
-\renewcommand{\chapter}{%
-  \ifthenelse{
-        \(      \boolean{@@inother} \and \boolean{@@nonchapterblankpages} \)
-    \or \( \not \boolean{@@inother} \and \boolean{@@chapterblankpages}    \)
-  }
-    {\cleardoublepage}
-    {\clearpage}
-  \@@NotTableOfContents
-  \global\@topnum\z@
-  \@afterindentfalse
-  \secdef \@chapter \@schapter
-}
+  
+
 \newboolean{@@inchapters}
 \setboolean{@@inchapters}{false}
+
+% % % % % % % % % % % % % % % % % % % % %
+% 			CHAPTER COMMANDS   			%
+% % % % % % % % % % % % % % % % % % % % %
+\renewcommand{\chapter}{%
+  \clearpage
+  \@@NotTableOfContents
+  \global\@topnum\z@
+  \@afterindenttrue
+  \secdef \@chapter \@schapter
+}
+
 \def\@chapter[#1]#2{%
   \ifnum \c@secnumdepth >\m@ne
     \refstepcounter{chapter}%
+	\renewcommand{\thechapter}{\Roman{chapter}}
     \typeout{\@chapapp\space\thechapter.}%
-    \setboolean{@@unset}{true}
-    \ifthen{\equal{agecon}{\@@dept}}
-      {\setboolean{@@unset}{false}\addcontentsline{toc}{chapter}{\protect\uppercase{\@chapapp\ \thechapter. #1}}}
-    \ifthen{\equal{ce}{\@@dept}}
-      {\setboolean{@@unset}{false}\addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}\uppercase{#1}}}
-    \ifthen{\equal{me}{\@@dept}}
-      {\setboolean{@@unset}{false}\addcontentsline{toc}{chapter}{\protect\numberline{\thechapter.}\uppercase{#1}}}
-    \ifthen{\equal{mse}{\@@dept}}
-      {\setboolean{@@unset}{false}\addcontentsline{toc}{chapter}{\protect\uppercase{\@chapapp\ \thechapter. #1}}}
+    \setboolean{@@unset}{false}\addcontentsline{toc}{chapter}{\protect\numberline{\thechapter.}\uppercase{#1}}
     \ifthen{\boolean{@@unset}}
       {\addcontentsline{toc}{chapter}{\protect\numberline{\thechapter}#1}}
-  \else
-    \ifthenelse{\equal{ce}{\@@dept}}
-      {\addcontentsline{toc}{chapter}{\uppercase{#1}}}
-      {\addcontentsline{toc}{chapter}{#1}}
-  \fi
-  \chaptermark{#1}%
-% \addtocontents{lof}{\protect\addvspace{10\p@}}%
-% \addtocontents{lot}{\protect\addvspace{10\p@}}%
-  \ifthenelse{\equal{ce}{\@@dept}}
-    {\@makechapterhead{\uppercase{#2}}}
-    {\@makechapterhead{#2}}
+	\fi
+	\chaptermark{#1}%
+	\@makechapterhead{#2}
   \@afterheading
   \ifthen{\not \boolean{@@inchapters}}
     {
@@ -772,7 +660,7 @@
     }
 }
 \def\@makechapterhead#1{%
-  \@@makechapterheadspacea
+  %\@@makechapterheadspacea
   {\centering
     \@@makechapterhead{#1}
     \endgraf
@@ -780,7 +668,7 @@
   \@@makechapterheadspaceb
 }
 \def\@makeschapterhead#1{%
-  \@@makeschapterheadspacea
+  %\@@makeschapterheadspacea
   {\centering
     \ifthenelse{\equal{ce}{\@@dept}}
       {\large\bf\uppercase{#1}}
@@ -789,6 +677,89 @@
   }
   \@@makeschapterheadspaceb
 }
+
+\def\@@makechapterhead#1{\bf\thechapter.\ \ \uppercase{#1}}
+\def\@@makechapterheadspacea{\vspace*{0pt}}
+\def\@@makechapterheadspaceb{\vspace*{1\normalbaselineskip}}
+\def\@@makeschapterheadspacea{\vspace*{0pt}}
+\def\@@makeschapterheadspaceb{\vspace*{1\normalbaselineskip}}
+	
+% % % % % % % % % % % % % % % % % % % % %
+% 		END OF CHAPTER COMMANDS   		%
+% % % % % % % % % % % % % % % % % % % % %
+
+% % % % % % % % % % % % % % % % % % % % %
+% 			SECTIONING COMMANDS			%
+% % % % % % % % % % % % % % % % % % % % %
+\def\@@makesectionhead#1{\bf\underline{#1}}
+\def\@@makesectionheadspacea{\vspace*{0pt}}
+\def\@@makesectionheadspaceb{\vspace*{0pt}}
+
+\renewcommand{\section}{%
+  \@@NotTableOfContents
+  \global\@topnum\z@
+  \@afterindenttrue
+  \secdef \@section \@ssection
+  }
+
+\def\@section[#1]#2{
+	\refstepcounter{section}
+    \addcontentsline{toc}{section}{#1}
+    \sectionmark{#1}%
+	\@makesectionhead{#2}
+	\@afterheading
+}
+
+\def\@makesectionhead#1{%
+  \@@makesectionheadspacea
+   {\noindent
+	\@@makesectionhead{#1}
+	\endgraf
+   }
+  \@@makesectionheadspaceb
+  }
+
+% % % % % % % % % % % % % % % % % % % % %
+% 		END OF SECTIONING COMMANDS		%
+% % % % % % % % % % % % % % % % % % % % %
+
+% % % % % % % % % % % % % % % % % % % % %
+% 			SUBSECTIONING COMMANDS		%
+% % % % % % % % % % % % % % % % % % % % %
+\def\@@makesubsectionhead#1{\bf\underline{#1}}
+\def\@@makesubsectionheadspacea{\vspace*{0pt}}
+\def\@@makesubsectionheadspaceb{\vspace*{0pt}}
+
+\renewcommand{\subsection}{%
+  \@@NotTableOfContents
+  \global\@topnum\z@
+  \@afterindenttrue
+  \secdef \@subsection \@ssubsection
+  }
+
+\def\@subsection[#1]#2{
+	\endgraf
+	\refstepcounter{subsection}
+    \addcontentsline{toc}{subsection}{#1}
+    \subsectionmark{#1}%
+	\@makesubsectionhead{#2}
+	\@afterheading
+}
+
+\def\@makesubsectionhead#1{%
+  \@@makesubsectionheadspacea
+   {\indent
+	\@@makesubsectionhead{#1}
+	\endgraf
+   }
+  \@@makesubsectionheadspaceb
+  }
+
+% % % % % % % % % % % % % % % % % % % % %
+% 		END OF SUBSECTIONING COMMANDS	%
+% % % % % % % % % % % % % % % % % % % % %
+
+
 \def\@startsection#1#2#3#4#5#6{%
   \if@noskipsec
     \leavevmode
@@ -819,55 +790,18 @@
 \newenvironment{proof}{\begin{Proof}\rm}{\hfill \usebox{\proofbox} \end{Proof}}
 \newtheorem{proposition}{Proposition}[section]
 \newtheorem{theorem}{Theorem}[section]
-\renewcommand{\section}{%
-  \@startsection
-    {section}%
-    {1}%
-    {\z@}%
-    {24pt}%
-    {12pt}%
-    {\@@sectionbaselinestretch\reset@font\@@sectionseries}%
-}
-\ifthen{\boolean{@@uglyheadings}}
-  {
-    \def\undertext#1{$\underline{\smash{\hbox{#1}}}$}
-    \def\section{
-      \vspace{36truept}
-      \secdef{\@@section}{\@@ssection}
-    }
-    \def\@@section[#1]#2{
-      \refstepcounter{section}
-      \sectionmark{#1}
-      \hbox to \textwidth{\hss\undertext{\thesection\ #2}\hss}\nopagebreak
-      \addcontentsline{toc}{section}{\protect\numberline{\csname thesection\endcsname}#1}
-      \nopagebreak
-    }
-    \def\@@ssection#1{
-      \sectionmark{#1}
-      \hbox to \textwidth{\hss\undertext{#1}\hss}\nopagebreak
-      \nopagebreak
-    }
-  }
-\renewcommand{\subsection}{%
-  \@startsection
-    {subsection}%
-    {2}%
-    {\z@}%
-    {24pt}% \@plus -1ex \@minus -.2ex}%
-    {12pt}% 1.5ex \@plus .2ex}%
-    {\@@subsectionbaselinestretch\reset@font\@@subsectionseries}%
-}
-\ifthen{\boolean{@@uglyheadings}}
-  {
-    \renewcommand{\subsection}[1]{
-      \refstepcounter{subsection}
-      \vspace{36truept}
-      \subsectionmark{#1}
-      \hbox to \textwidth{\hss\thesubsection\ #1\hss}\nopagebreak
-      \addcontentsline{toc}{subsection}{\protect\numberline{\csname thesubsection\endcsname}#1}
-      \nopagebreak
-    }
-  }
+	
+	
+% \renewcommand{\subsection}{%
+  % \@startsection
+    % {subsection}%
+    % {2}%
+    % {\z@}%
+    % {24pt}% \@plus -1ex \@minus -.2ex}%
+    % {12pt}% 1.5ex \@plus .2ex}%
+    % {\@@subsectionbaselinestretch\reset@font\@@subsectionseries}%
+% }
+
 \renewcommand{\subsubsection}{
   \@startsection
     {subsubsection}%
@@ -890,33 +824,7 @@
       \nopagebreak\indent
     }
   }
-\ifthen{\boolean{@@uglyheadings}}
-  {
-    \renewcommand{\subsubsection}[1]{
-      \refstepcounter{subsubsection}
-      \vspace{36truept}
-      \subsubsectionmark{#1}
-      \noindent \undertext{\thesubsubsection\ #1}\newline\nopagebreak
-      \addcontentsline{toc}{subsubsection}{\protect\numberline{\csname thesubsubsection\endcsname}#1}
-      \nopagebreak
-    }
-  }
-\ifthen{\boolean{@@uglyheadings}}
-  {
-    \setcounter{tocdepth}{4}
-    \newcommand*{\l@subsubsubsection}{\@dottedtocline{4}{\smalltocskip}{11.2em}{5.0em}}
-    \def\subsubsubsectionmark#1{}
-    \newcounter{subsubsubsection}[subsubsection]
-    \renewcommand{\thesubsubsubsection}{\thesubsubsection.\arabic{subsubsubsection}}
-    \newcommand{\subsubsubsection}[1]{
-      \refstepcounter{subsubsubsection}
-      \vspace{36truept}
-      \subsubsubsectionmark{#1}
-      \noindent \thesubsubsubsection. #1\newline\nopagebreak
-      \addcontentsline{toc}{subsubsubsection}{\protect\numberline{\csname thesubsubsubsection\endcsname}#1}
-      \nopagebreak
-    }
-  }
+
 \def\@sect#1#2#3#4#5#6[#7]#8{%
   \ifnum #2>\c@secnumdepth
     \let\@svsec\@empty
@@ -1163,8 +1071,7 @@
     \RequirePackage{natbib}
     \bibliographystyle{unified}
     \def\@@bibname{{\normalsize\rm REFERENCES}}
-    \nochapterblankpages
-}
+ }
 
 \ifthen{\equal{unsrt}{\@@bibstyle}}
   {
@@ -1276,7 +1183,6 @@
 
     \def\fnum@figure{\figurename~\thefigure.~}
     \def\fnum@table{\tablename~\thetable.~}
-    \nochapterblankpages
   
 
 \makeatother
